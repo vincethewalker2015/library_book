@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     @book = Book.find(params[:id])
-    if @book.update(todo_params)
+    if @book.update(book_params)
       flash[:success] = "Book was Updated"
       redirect_to book_path(@book)
     else

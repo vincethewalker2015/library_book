@@ -1,20 +1,21 @@
 <div class="row">
-  <div class="col-md-6 col-md-offset-2">
+  <div class="col-md-8 col-md-offset-2">
   <!-- <div class="column is-4">
       <%#= image_tag @book.thumbnail.variant(resize: "320x495"), alt: "#{@book.title} by #{@book.author}" %>
     </div> -->
     <div class="well">
       <h1 class="text-center"><%= @book.title %></h1>
-
+      <h4 class="text-center">Author: <%= @book.author %></h4>
         
           <%#= render 'book-controls', book: @book %>
-          <p class="text-center"><strong>Description: </strong><%= @book.description %></p>
+          <p class="text-center d-flex"><%= @book.description %></p>
           <p></p>
           
       
 
       <%# if admin? %>
-        <p class="text-center"> 
+        <p class="text-center">
+          <%= link_to 'Index',books_path, class: 'btn btn-warning' %> |
           <%= link_to 'Edit', edit_book_path(@book), class: 'btn btn-primary' %> |
           <%= link_to 'Delete', book_path(@book), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger" %>
         </p>

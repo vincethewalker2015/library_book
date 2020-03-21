@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="well text-center">
       <h1 class="title">
-        <i class="fa fa-book"></i> Book Delivery
+         Book Delivery
       </h1>
       <h2 class="subtitle">
         Check out some of the latest titles
@@ -12,7 +12,20 @@
 </section>
 
 <section class="row">
-  <div class="col-md-6 col-md-offset-2">
-    <%= render @books %>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="text-center">
+    <% @books.each do |book| %>
+        <div class="well">
+          <h2><span>Title: </span><%= book.title %> </h2>
+          <p><span><strong>Description:</strong> </span> <%= book.description %></p>
+          <h4><span>Author: </span> <%= book.author %></h4>
+          <%= link_to "View", book_path(book), class: "btn btn-info "%>
+          <%# if logged_in? && current_user == todo.user || current_user.admin? %>
+            <%= link_to "Edit", edit_book_path(book), class: "btn btn-warning bttn" %>
+            <%= link_to "Delete", book_path(book), method: :delete, data: {confirm: "Are you sure??"}, class: "btn btn-danger bttn" %>
+          <%# end %>
+        </div>
+      <% end %>
+  </div>
   </div>
 </section>
