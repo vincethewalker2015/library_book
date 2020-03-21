@@ -9,20 +9,17 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-left">
 					<li><%= link_to "Home", root_path %></li>
-					<%# if logged_in? %>
-            <li class="nav-name"><%#= current_user.name %> <%#= "(Admin Status)" if current_user.admin? %></li>
-					<%# end %>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
 					<% if current_user %>
-						<li><%= link_to "Log out", destroy_user_session_path, class: "btn btn-danger", method: :delete %></li>
-					<% else %>
-					<li><%= link_to "Log in", new_user_session_path, class: "btn btn-primary", method: :get %></li>
+            <li class="nav-name"><%= current_user.email %> <%#= "(Admin Status)" if current_user.admin? %></li>
 					<% end %>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="log-in"><%#= link_to "log In", login_path, class: "btn btn-primary bttn" %></li>
-					<li class="log-out"><%#= link_to "log Out", login_path, method: :delete, class: "btn btn-danger bttn" %></li>
+					<% if current_user %>
+						<li class="nav-buttons"><%= link_to "Add Book", new_book_path, class: "btn btn-primary" %></li>
+						<li class="nav-buttons"><%= link_to "Log out", destroy_user_session_path, class: "btn btn-danger", method: :delete %></li>
+					<% else %>
+					<li class="nav-buttons"><%= link_to "Log in", new_user_session_path, class: "btn btn-primary", method: :get %></li>
+					<% end %>
 				</ul>
 			</div>
 		</nav>

@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   #has_one_attached :thumbnail
   
   belongs_to :user
