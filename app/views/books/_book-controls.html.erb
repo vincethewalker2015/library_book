@@ -1,0 +1,17 @@
+<% if subscribed? %>
+
+  <% if user_added_to_library?(current_user, book) %>
+
+    <%= link_to 'Remove from library', add_book_path(book, type: "remove"), method: :put, class: "btn btn-danger btn-lg" %>
+
+    <% if controller.controller_name == "library" %>
+      <%= link_to 'Download', '#', class:"btn btn-success btn-lg" %>
+    <% end %>
+
+  <% else %>
+    <%= link_to 'Add to library', add_book_path(book, type: "add"), method: :put, class: "btn btn-primary btn-lg" %>
+  <% end %>
+
+<% else %>
+  <%= link_to 'Add to library', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+<% end %>
