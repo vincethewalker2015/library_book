@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_191627) do
-#ActiveRecord::Schema.define(version: 2020_03_21_124415) do
+ActiveRecord::Schema.define(version: 2020_03_22_144103) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "author"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "libraries", force: :cascade do |t|
@@ -35,6 +36,14 @@ ActiveRecord::Schema.define(version: 2020_03_21_191627) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stripe_id"
+    t.string "stripe_subscription_id"
+    t.string "card_last4"
+    t.integer "card_exp_month"
+    t.integer "card_exp_year"
+    t.string "card_type"
+    t.boolean "admin"
+    t.boolean "subscribed"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
