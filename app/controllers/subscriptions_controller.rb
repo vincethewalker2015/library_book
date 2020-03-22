@@ -1,6 +1,7 @@
 class SubscriptionsController < ApplicationController
-  layout "subscribe"
+  #layout "subscribe"
   before_action :authenticate_user!, except: [:new, :create]
+
 
   def new
     if user_signed_in? && current_user.subscribed?

@@ -1,5 +1,5 @@
 class PricingController < ApplicationController
-  layout "subscribe"
+  #layout "subscribe"
 
   def index
   end
