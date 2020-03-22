@@ -1,0 +1,51 @@
+<section class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <h1 class="title">Pricing</h1>
+    <h2 class="subtitle">Choose the best plan that matches your reading consistency and budget.</h2>
+    </div>
+    <div class="col-md-6 col-md-offset-4">
+      <div class="well">
+        <h3 class="text-center">Starter</h3>
+        <div class="text-center"><span class="plan-price-amount"><span class="plan-price-currency">£</span>5</span> /month</div>
+        <div class="">
+          <div class="text-center">5 Downloads</div>
+        </div>
+        <div class="plan-footer text-center">
+          <% if user_signed_in? %>
+            <%= link_to 'Subscribe', new_subscription_path(plan: "starter", plan_id: Rails.application.credentials.starter), class:"btn btn-primary btn-lg" %>
+          <% else %>
+            <%= link_to 'Subscribe', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+         <% end %>
+        </div>
+      </div>
+      <div class="well">
+        <h3 class="text-center">Book Worm</h3>
+        <div class="text-center"><span class="plan-price-amount"><span class="plan-price-currency">£</span>10</span> /month</div>
+        <div class="">
+          <div class="text-center">10 Downloads</div>
+        </div>
+        <div class="plan-footer text-center">
+           <% if user_signed_in? %>
+            <%= link_to 'Subscribe', new_subscription_path(plan: "book_worm", plan_id: Rails.application.credentials.book_worm), class:"btn btn-primary btn-lg" %>
+          <% else %>
+            <%= link_to 'Subscribe', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+         <% end %>
+        </div>
+      </div>
+      <div class="well">
+        <h3 class="text-center">Scholar</h3>
+        <div class="text-center"><span class="plan-price-amount"><span class="plan-price-currency">£</span>30</span> /month</div>
+        <div class="plan-items">
+          <div class="text-center">30 Downloads</div>
+        </div>
+        <div class="plan-footer text-center">
+         <% if user_signed_in? %>
+            <%= link_to 'Subscribe', new_subscription_path(plan: "scholar", plan_id: Rails.application.credentials.scholar), class:"btn btn-primary btn-lg" %>
+          <% else %>
+            <%= link_to 'Subscribe', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+         <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
